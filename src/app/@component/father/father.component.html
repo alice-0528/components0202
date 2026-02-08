@@ -1,0 +1,30 @@
+<!-- <p>father works!</p>
+
+
+<label for="">使用者名稱：</label>
+<input type="text" [(ngModel)]="F_userName">
+<br/>
+<label for="">使用者Email：</label>
+<input type="text" [(ngModel)]="F_userEmail">
+<br/>
+<label for="">使用者地址：</label>
+<input type="text" [(ngModel)]="F_userAddress">
+
+
+<p>{{getChildData}}</p>
+<app-child
+  [message]="faterMessage"
+  [userName]="F_userName"
+  [userEmail]="F_userEmail"
+  [userAddress]="F_userAddress"
+
+  (notify)="fatherFun($event)"
+  >
+</app-child> -->
+
+<p>使用者名稱：{{formData.name}}</p>
+<p>使用者Email：{{formData.email}}</p>
+<p>使用者地址：{{formData.address}}</p>
+
+<app-child (submitData)="getData($event)"></app-child>
+

@@ -1,0 +1,69 @@
+<h1 class="DatasetDescription">{{DatasetDescription}}</h1>
+
+<div class="dropdown-wrapper">
+  <button type="button" (click)="toggleDropdown()" class="main-button">
+    {{ chooseLocation || '請選擇區域' }}
+  </button>
+
+  <div>
+    <h3 class="timeSelect">時間選擇：</h3>
+    <button (click)="back()" class="back">back</button>
+    <button (click)="next()" class="next">next</button>
+    <input type="number" [(ngModel)]="reviseTime" class="reviseTime">
+    <button (click)="revise()" class="revise">送出</button>
+  </div>
+
+  @if (isOpen) {
+      <div class="selection-area">
+        @for (data of LocationData; track data.LocationName) {
+          <button type="button" (click)="changeLocation(data)" class="list-item">
+            {{ data?.LocationName }}
+          </button>
+        }
+      </div>
+  }
+</div>
+
+<div class="content">
+  @for (weatherElement of weather; track weatherElement?.ElementName) {
+    <div class="contentData">
+      <h4>{{ weatherElement?.ElementName}}</h4>
+
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0].Temperature ) {
+        <div>溫度：{{weatherElement.Time[time].ElementValue[0].Temperature}}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.DewPoint) {
+        <div>露點溫度：{{ weatherElement.Time[time].ElementValue[0].DewPoint }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.RelativeHumidity) {
+        <div>相對濕度：{{ weatherElement.Time[time].ElementValue[0].RelativeHumidity }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.ApparentTemperature) {
+        <div>體感溫度：{{ weatherElement.Time[time].ElementValue[0].ApparentTemperature }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.ComfortIndexDescription) {
+        <div>舒適度指數：{{ weatherElement.Time[time].ElementValue[0].ComfortIndexDescription }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.WindSpeed) {
+        <div>風速：{{ weatherElement.Time[time].ElementValue[0].WindSpeed }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.WindDirection) {
+        <div>風向：{{ weatherElement.Time[time].ElementValue[0].WindDirection }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.ProbabilityOfPrecipitation) {
+        <div>3小時降雨機率：{{ weatherElement.Time[time].ElementValue[0].ProbabilityOfPrecipitation }}%</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.Weather) {
+        <div>天氣現象：{{ weatherElement.Time[time].ElementValue[0]?.Weather }}</div>
+      }
+      @if (weatherElement?.Time?.[time]?.ElementValue?.[0]?.WeatherDescription) {
+        <div>天氣預報描述：{{ weatherElement.Time[time].ElementValue[0]?.WeatherDescription }}</div>
+      }
+
+      <!-- Time -->
+      <div class="time-display">
+        {{weatherElement?.Time[time].DataTime | date: 'MM/dd (EEEE) HH:mm'}}
+      </div>
+    </div>
+  }
+</div>
