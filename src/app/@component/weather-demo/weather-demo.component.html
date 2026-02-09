@@ -5,14 +5,6 @@
     {{ chooseLocation || '請選擇區域' }}
   </button>
 
-  <div>
-    <h3 class="timeSelect">時間選擇：</h3>
-    <button (click)="back()" class="back">back</button>
-    <button (click)="next()" class="next">next</button>
-    <input type="number" [(ngModel)]="reviseTime" class="reviseTime">
-    <button (click)="revise()" class="revise">送出</button>
-  </div>
-
   @if (isOpen) {
       <div class="selection-area">
         @for (data of LocationData; track data.LocationName) {
@@ -22,6 +14,15 @@
         }
       </div>
   }
+
+    <div>
+    <h3 class="timeSelect">時間選擇：</h3>
+    <button (click)="back()" class="back">back</button>
+    <button (click)="next()" class="next">next</button>
+    <input type="number" [(ngModel)]="reviseTime" class="reviseTime">
+    <button (click)="revise()" class="revise">送出</button>
+  </div>
+
 </div>
 
 <div class="content">
