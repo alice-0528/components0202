@@ -14,16 +14,15 @@
         }
       </div>
   }
+</div>
 
-    <div>
+  <div class="timeChoose">
     <h3 class="timeSelect">時間選擇：</h3>
     <button (click)="back()" class="back">back</button>
     <button (click)="next()" class="next">next</button>
     <input type="number" [(ngModel)]="reviseTime" class="reviseTime">
     <button (click)="revise()" class="revise">送出</button>
   </div>
-
-</div>
 
 <div class="content">
   @for (weatherElement of weather; track weatherElement?.ElementName) {
