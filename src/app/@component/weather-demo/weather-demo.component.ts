@@ -59,15 +59,11 @@ export class WeatherDemoComponent {
     }
 
     next(){
-      if(this.time<24) {
         this.time+=1
-      }
     }
 
     back(){
-      if(this.time>0) {
         this.time-=1
-      }
     }
 
     revise(){
