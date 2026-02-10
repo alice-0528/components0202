@@ -9,6 +9,8 @@ import { ApiDemoComponent } from './@component/api-demo/api-demo.component';
 import { FirstComponent } from './@component/first/first.component';
 import { SecondComponent } from './@component/second/second.component';
 import { WeatherDemoComponent } from './@component/weather-demo/weather-demo.component';
+import { InterfaceComponent } from './@component/interface/interface.component';
+import { InformationComponent } from './@component/information/information.component';
 
 export const routes: Routes = [
   {path:'first',component:FirstComponent,
@@ -23,6 +25,8 @@ export const routes: Routes = [
   {path:'arrDemo',component:ArrDemoComponent},
   {path:'apiDemo',component:ApiDemoComponent},
   {path:'weather',component:WeatherDemoComponent},
+  {path:'interface',component:InterfaceComponent},
+  {path:'information',component:InformationComponent},
 
 
 
